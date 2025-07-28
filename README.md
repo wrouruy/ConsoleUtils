@@ -4,6 +4,7 @@
 
 For Example:
 ```
+#include <stdio.h>
 #include "ConsoleUtils.h"
 
 int main(void)
