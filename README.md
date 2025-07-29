@@ -3,11 +3,13 @@
 2. Connect downloaded file to the desired: ``` #include "ConsoleUtils.h" ```
 
 ## Table of Functions:
-| Name                        | Descriptions                                  |
-|-----------------------------|-----------------------------------------------|
-| consoleClear(void)          | A function that clears the console            |
-| consoleArray(array, format) | prints the specified array to the console     |
-| consoleGetSize(void)        | takes number of row and column of the console |
+| Name                           | Descriptions                                  |
+|--------------------------------|-----------------------------------------------|
+| consoleClear(void)             | A function that clears the console            |
+| consoleArray(array, format)    | Prints the specified array to the console     |
+| consoleGetSize(void)           | Takes number of row and column of the console |
+| consoleGetCh(void)             | Takes one char symbol written in the console  |
+| consoleGetStr(address, length) | Takes a line written in the console           |
 
 For Example:
 ```
@@ -27,6 +29,14 @@ int main(void)
     // get console size
     struct ConsoleSize size = consoleGetSize();
     printf("row: %d, column: %d\n", size.row, size.column);
+
+    // get char symbol and line from the console
+    printf("%c\n", consoleGetCh());
+
+    char var[64];
+    consoleGetStr(var, sizeof(var));
+
+    printf("\n");
 
     return 0;
 }
