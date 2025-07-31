@@ -38,6 +38,9 @@ int main(void)
     consoleGetStr(var, sizeof(var));
 
     printf("\n");
+    
+    // get int
+    int num = consoleGetInt(); // get int
 
     return 0;
 }
