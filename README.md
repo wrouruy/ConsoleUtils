@@ -40,7 +40,7 @@ int main(void)
     printf("\n");
     
     // get int
-    int num = consoleGetInt(); // get int
+    int num = consoleGetInt();
 
     return 0;
 }
