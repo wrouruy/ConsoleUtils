@@ -10,6 +10,7 @@
 | consoleGetSize(void)           | Takes number of row and column of the console |
 | consoleGetCh(void)             | Takes one char symbol written in the console  |
 | consoleGetStr(address, length) | Takes a line written in the console           |
+| consoleGetInt(max)             | Takes a int written in the console            |
 
 For Example:
 ```

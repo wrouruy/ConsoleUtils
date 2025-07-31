@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <math.h>
 
 #ifdef _WIN32
     #include <windows.h>
@@ -35,6 +36,11 @@ void consoleClear(void)
         printf("%c" format "%c%s", mark, (arr)[_i], mark, _i == _len - 1 ? " " : ", "); \
     printf("}\n"); \
 } while (0)
+
+void consoleBool(bool boolean)
+{
+    printf("%s\n", boolean ? "true" : "false");
+}
 
 struct ConsoleSize {
     unsigned int row, column;
@@ -116,4 +122,40 @@ void consoleGetStr(char *address, unsigned int length)
         printf("%c", ch);
     }
     address[i] = '\0';
+}
+
+int getDigitCount(int max) {
+    int digits = 1;
+    while (max >= 10) {
+        max /= 10;
+        digits++;
+    }
+    return digits;
+}
+int consoleGetInt(int max)
+{
+    char result[getDigitCount(max) + 1];
+    char resultPlusCh[getDigitCount(max) + 2];
+    char ch;
+    int i = 0;
+
+    result[0] = '\0';
+
+    while (true) {
+        ch = consoleGetCh();
+        snprintf(resultPlusCh, sizeof(resultPlusCh), "%s%c", result, ch);
+
+        if (ch == '\n') break;
+
+        if (!(ch >= '0' && ch <= '9') || atoi(resultPlusCh) > max) {
+            continue;
+        }
+
+        result[i++] = ch;
+        result[i] = '\0';
+
+        printf("%c", ch);
+    }
+
+    return atoi(result);
 }
